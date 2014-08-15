@@ -1,0 +1,55 @@
+<div ng-controller="LoginCtrl">
+    <p>
+        <button class="btn" ng-model="buttonText" ng-click="toggleLogin()">{{buttonText}}</button>
+    </p>
+    <br/>
+    <form class="form-horizontal" ng-show="isLogin">
+        <div class="control-group">
+            <label class="control-label" for="inputEmail">Email</label>
+            <div class="controls">
+                <input type="email" name="email" class="input-xlarge seedlarge" ng-model="user.email">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputPassword">Password</label>
+            <div class="controls">
+                <input type="password" name="password" class="input-xlarge seedlarge" ng-model="user.password">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <input type="submit" value="Login" id="da-login-submit" class="btn btn-success" 
+                    ng-disabled="!canSubmit()" ng-click="login(user.email, user.password)">
+            </div>
+        </div>
+    </form>
+    <form class="form-horizontal" ng-show="!isLogin">
+        <div class="control-group">                                    
+            <label class="control-label">Email</label>
+            <div class="controls">
+                <input type="email" class="input-xlarge seedlarge" ng-model="newUser.email">                                        
+            </div>                                    
+        </div>
+        <div class="control-group">
+            <label class="control-label">Password</label>
+            <div class="controls">
+                <input type="text" ng-model="newUser.password" 
+                class="input-xlarge seedlarge">
+            </div>
+        </div>                    
+        <div class="control-group">
+            <label class="control-label">Repeat Password</label>
+            <div class="controls">
+                <input type="text" ng-model="newUser.repeatPassword" class="input-xlarge seedlarge" >
+                <span class="text-error" ng-show='checkMatch()'>Passwords do not match!</span>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <input type="submit" value="Submit" class="btn btn-success" 
+                ng-disabled="!canSubmit()"
+                ng-click="createUser(newUser.email, newUser.password, selectedRole)">
+            </div>
+        </div>
+    </form>    
+</div>

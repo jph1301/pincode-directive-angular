@@ -19,15 +19,17 @@
 usage :
         use angulars <pin-code> tag to display unlocking screen.
         possible attributes are:
-                length : no of characters in a pin
-                loginTitle: title to be Displayed On screen for Pin View Heading
+                length : no of characters in a pin (default 4)
+                loginTitle: title to be Displayed On screen for Pin View Heading (default '')
+                attempts: number of attempts (default 3)
+                freez-time: freez input time when user croos attempts limit (default 60) | time in sec
         dependencies:
         css folder files, bootrap min, pinDirectives.css
         js folder and its file
         pinimage folder
 
 -->
-<pin-code length="4" loginTitle="Pincode" attempts="2"></pin-code>
+<pin-code length="5" loginTitle="Pincode" attempts="2" freez-time="2"></pin-code>
 
 
 </body>
